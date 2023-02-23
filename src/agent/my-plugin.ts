@@ -32,7 +32,7 @@ export class MyAgentPlugin implements IAgentPlugin {
     const didDoc = await context.agent.createIdentifier({ didUrl: args.did })
     // or emit some events
     console.log(didDoc)
-    await context.agent.emit('my-other-event', { foo: 'hello' })
+    await context.agent.emit('my-other-event', { num_algo: 0 })
     return { did: '' }
   }
 }
