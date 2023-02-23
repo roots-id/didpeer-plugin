@@ -1,0 +1,52 @@
+{
+  "IMyAgentPlugin": {
+    "components": {
+      "schemas": {
+        "IMyAgentDidPeerArgs": {
+          "type": "object",
+          "properties": {
+            "did": {
+              "type": "string",
+              "description": "Decentralized identifier"
+            },
+            "bar": {
+              "type": "string",
+              "description": "Lorem ipsum"
+            },
+            "foo": {
+              "type": "string",
+              "description": "Dolorem"
+            }
+          },
+          "required": [
+            "did",
+            "bar",
+            "foo"
+          ],
+          "description": "Arguments needed for  {@link  MyAgentPlugin.myDidPeer } \nTo be able to export a plugin schema, your plugin methods should use an `args` parameter of a named type or interface."
+        },
+        "IMyAgentDidPeerResult": {
+          "type": "object",
+          "properties": {
+            "foobar": {
+              "type": "string"
+            },
+            "baz": {}
+          },
+          "description": "Result of  {@link  MyAgentPlugin.myDidPeer } \nTo be able to export a plugin schema, your plugin return types need to be Promises of a named type or interface."
+        }
+      },
+      "methods": {
+        "myDidPeer": {
+          "description": "Your plugin method description",
+          "arguments": {
+            "$ref": "#/components/schemas/IMyAgentDidPeerArgs"
+          },
+          "returnType": {
+            "$ref": "#/components/schemas/IMyAgentDidPeerResult"
+          }
+        }
+      }
+    }
+  }
+}
