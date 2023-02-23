@@ -31,6 +31,7 @@ export class MyAgentPlugin implements IAgentPlugin {
     // you can call other agent methods (that are declared in the `IRequiredContext`)
     const didDoc = await context.agent.resolveDid({ didUrl: args.did })
     // or emit some events
+    console.log(didDoc)
     await context.agent.emit('my-other-event', { foo: 'hello' })
     return { foobar: args.bar }
   }
