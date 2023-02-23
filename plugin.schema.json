@@ -5,33 +5,77 @@
         "IMyAgentDidPeerArgs": {
           "type": "object",
           "properties": {
-            "did": {
-              "type": "string",
+            "num_algo": {
+              "type": "number",
               "description": "Decentralized identifier"
             },
-            "bar": {
-              "type": "string",
+            "service": {
+              "$ref": "#/components/schemas/IService",
               "description": "Lorem ipsum"
             },
-            "foo": {
-              "type": "string",
-              "description": "Dolorem"
+            "did": {
+              "type": "string"
             }
           },
           "required": [
-            "did",
-            "bar",
-            "foo"
+            "num_algo"
           ],
           "description": "Arguments needed for  {@link  MyAgentPlugin.myDidPeer  } \nTo be able to export a plugin schema, your plugin methods should use an `args` parameter of a named type or interface."
+        },
+        "IService": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "ID"
+            },
+            "type": {
+              "type": "string",
+              "description": "Service type"
+            },
+            "serviceEndpoint": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/IServiceEndpoint"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IServiceEndpoint"
+                  }
+                }
+              ],
+              "description": "Endpoint URL"
+            },
+            "description": {
+              "type": "string",
+              "description": "Optional. Description"
+            }
+          },
+          "required": [
+            "id",
+            "type",
+            "serviceEndpoint"
+          ],
+          "description": "Identifier service"
+        },
+        "IServiceEndpoint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ],
+          "description": "Represents a service endpoint URL or a map of URLs"
         },
         "IMyAgentDidPeerResult": {
           "type": "object",
           "properties": {
-            "foobar": {
+            "did": {
               "type": "string"
-            },
-            "baz": {}
+            }
           },
           "description": "Result of  {@link  MyAgentPlugin.myDidPeer  } \nTo be able to export a plugin schema, your plugin return types need to be Promises of a named type or interface."
         }

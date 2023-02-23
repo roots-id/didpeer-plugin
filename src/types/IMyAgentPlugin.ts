@@ -1,4 +1,4 @@
-import { IPluginMethodMap, IAgentContext, IDIDManager, IResolver } from '@veramo/core'
+import { IPluginMethodMap, IAgentContext, IDIDManager, IResolver , IService} from '@veramo/core'
 
 /**
  * My Agent Plugin description.
@@ -43,17 +43,15 @@ export interface IMyAgentDidPeerArgs {
   /**
    * Decentralized identifier
    */
-  did: string
+  num_algo: number
 
   /**
    * Lorem ipsum
    */
-  bar: string
+  service?: IService
 
-  /**
-   * Dolorem
-   */
-  foo: string
+  did?: string
+
 }
 
 /**
@@ -64,8 +62,7 @@ export interface IMyAgentDidPeerArgs {
  * @beta
  */
 export type IMyAgentDidPeerResult = {
-  foobar?: string
-  baz?: any
+  did?: string
 }
 
 /**

@@ -29,10 +29,10 @@ export class MyAgentPlugin implements IAgentPlugin {
   /** {@inheritDoc IMyAgentPlugin.myDidPeer} */
   private async myDidPeer(args: IMyAgentDidPeerArgs, context: IRequiredContext): Promise<IMyAgentDidPeerResult> {
     // you can call other agent methods (that are declared in the `IRequiredContext`)
-    const didDoc = await context.agent.resolveDid({ didUrl: args.did })
+    const didDoc = await context.agent.createIdentifier({ didUrl: args.did })
     // or emit some events
     console.log(didDoc)
     await context.agent.emit('my-other-event', { foo: 'hello' })
-    return { foobar: args.bar }
+    return { did: '' }
   }
 }
