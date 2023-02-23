@@ -219,9 +219,6 @@ keyManager:
                 - $require: '@veramo/kms-local#SecretBox'
                   $args:
                     - $ref: /constants/secretKey
-        # template: you can install your own Key Management System implementation too
-        my:
-          $require: ./build#MyKeyManagementSystem
 
 # DID Manager
 didManager:
@@ -235,7 +232,7 @@ didManager:
       providers:
         # template: you can install your customized DID provider like so
         did:my:
-          $require: ./build#MyIdentifierProvider
+          $require: ./build#PeerDIDProvider
           $args:
             - defaultKms: local
         did:ethr:
