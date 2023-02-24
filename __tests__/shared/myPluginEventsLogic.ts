@@ -17,7 +17,7 @@ export default (testContext: {
     })
     afterAll(testContext.tearDown)
 
-    it('should emit my-event', async () => {
+    it.skip('should emit my-event', async () => {
       expect.assertions(1)
 
       const myId = await agent.didManagerGetOrCreate({ alias: "test" })

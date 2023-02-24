@@ -1,7 +1,7 @@
-import { TAgent, IMessageHandler } from '@veramo/core'
+import { TAgent, IMessageHandler, IDIDManager } from '@veramo/core'
 import { IMyAgentPlugin } from '../../src/types/IMyAgentPlugin'
 
-type ConfiguredAgent = TAgent<IMyAgentPlugin & IMessageHandler>
+type ConfiguredAgent = TAgent<IMyAgentPlugin & IMessageHandler & IDIDManager>
 
 export default (testContext: {
   getAgent: () => ConfiguredAgent
@@ -18,10 +18,13 @@ export default (testContext: {
     afterAll(testContext.tearDown)
 
     it('should num algo', async () => {
-      const result = await agent.myDidPeer({
-        num_algo: 0
+      const result = await agent.didManagerCreate({
+        provider: 'did:peer',
+        options: {
+          num_algo: 0
+        }
       })
-      expect(result).toEqual({ did: 'ipsum' })
+      expect(result.provider).toEqual('did:peer')
     })
   })
 }
