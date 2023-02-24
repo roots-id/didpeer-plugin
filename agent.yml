@@ -231,7 +231,7 @@ didManager:
       defaultProvider: did:ethr:goerli
       providers:
         # template: you can install your customized DID provider like so
-        did:my:
+        did:peer:
           $require: ./build#PeerDIDProvider
           $args:
             - defaultKms: local
