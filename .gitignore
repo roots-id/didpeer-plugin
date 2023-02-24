@@ -4,4 +4,3 @@ tmp
 database.sqlite
 tsconfig.tsbuildinfo
 .idea/
-__tests__/

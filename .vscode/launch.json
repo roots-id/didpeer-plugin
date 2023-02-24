@@ -27,7 +27,7 @@
         "-m",
         "myDidPeer",
         "-a",
-        "{\"did\": \"did:web:example.com\", \"num_algo\": 0}"
+        "{\"num_algo\": 0}"
       ],
       "sourceMaps": true,
       "console": "integratedTerminal",
