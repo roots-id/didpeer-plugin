@@ -100,7 +100,7 @@ export class PeerDIDProvider extends AbstractIdentifierProvider {
       const agreementKeyText = Buffer.from(
         Multibase.encode(
           'base58btc',
-          Multicodec.addPrefix('ed25519-pub', Buffer.from(agreementKey.publicKeyHex, 'hex')),
+          Multicodec.addPrefix('x25519-pub', Buffer.from(agreementKey.publicKeyHex, 'hex')),
         ),
       ).toString()
 
@@ -108,7 +108,7 @@ export class PeerDIDProvider extends AbstractIdentifierProvider {
 
 
       const identifier: Omit<IIdentifier, 'provider'> = {
-        did: `'did:peer:2.V${authKeyText}.E${agreementKeyText}.S${ServiceEncoded}'`,
+        did: `'did:peer:2.E${agreementKeyText}.V${authKeyText}.S${ServiceEncoded}'`,
         controllerKeyId: authKey.kid,
         keys: [authKey,agreementKey],
         services: [options.service],
