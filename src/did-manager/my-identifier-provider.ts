@@ -108,7 +108,7 @@ export class PeerDIDProvider extends AbstractIdentifierProvider {
 
 
       const identifier: Omit<IIdentifier, 'provider'> = {
-        did: `'did:peer:2.E${agreementKeyText}.V${authKeyText}.S${ServiceEncoded}'`,
+        did: `did:peer:2.E${agreementKeyText}.V${authKeyText}.S${ServiceEncoded}`,
         controllerKeyId: authKey.kid,
         keys: [authKey,agreementKey],
         services: [options.service],
