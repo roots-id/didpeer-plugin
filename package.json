@@ -1,6 +1,6 @@
 {
   "name": "did-peer-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source": "src/index.ts",
   "main": "src/index.ts",
   "types": "build/index.d.ts",
